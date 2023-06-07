@@ -21,7 +21,7 @@ type TodoListPropsType = {
 
 export function TodoList(props: TodoListPropsType) {
     const [newTaskTitle, setNewTaskTitle] = useState("")
-    const [error, setError] = useState<string|null>(null)
+    const [error, setError] = useState<string | null>(null)
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setNewTaskTitle(e.currentTarget.value)
@@ -30,7 +30,7 @@ export function TodoList(props: TodoListPropsType) {
         if (newTaskTitle.trim() !== "") {
             props.addTask(newTaskTitle)
             setNewTaskTitle("")
-        }else {
+        } else {
             setError("Title is required")
         }
     }
@@ -59,7 +59,7 @@ export function TodoList(props: TodoListPropsType) {
                     value={newTaskTitle}
                     onChange={onChangeHandler}
                     onKeyPress={onKeyPressHandler}
-                    className={error?"error":''}
+                    className={error ? "error" : ''}
                 />
 
                 <button onClick={addTask}>x</button>
@@ -97,7 +97,7 @@ export function TodoList(props: TodoListPropsType) {
             <div>
                 <button className={""} onClick={onAllClickHandler}>All
                 </button>
-                <button  onClick={onActiveClickHandler}>Active
+                <button onClick={onActiveClickHandler}>Active
                 </button>
                 <button onClick={onCompletedClickHandler}>Completed
                 </button>
